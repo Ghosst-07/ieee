@@ -77,9 +77,8 @@ function SideNavBar() {
         {menuItems.map((item) => (
           <div
             key={item.title}
-            className={`flex flex-row items-center md:w-36 w-16 pt-6 md:pl-0 pl-3 transition-colors duration-300 ${
-              activeMenu === item ? "text-white" : "text-[#757575] "
-            }`}
+            className={`flex flex-row items-center md:w-36 w-16 pt-6 md:pl-0 pl-3 transition-colors duration-300 ${activeMenu === item ? "text-white" : "text-[#757575] "
+              }`}
           >
             <Link
               href={item.path}
@@ -90,16 +89,14 @@ function SideNavBar() {
                 <div className="w-[2px] h-5 bg-blue-700 mr-4 rounded-lg"></div>
               ) : null}
               <div
-                className={`mr-3 flex items-center justify-center ${
-                  activeMenu === item ? "text-white" : "text-[#75757]"
-                } transition-all duration-300`}
+                className={`mr-3 flex items-center justify-center ${activeMenu === item ? "text-white" : "text-[#75757]"
+                  } transition-all duration-300`}
               >
                 {item.icon}
               </div>
               <div
-                className={`text-xl flex items-center justify-center ${
-                  activeMenu === item ? "text-white" : "text-[#757575]"
-                } transition-all duration-300 ${"hidden md:flex"}`}
+                className={`text-xl flex items-center justify-center ${activeMenu === item ? "text-white" : "text-[#757575]"
+                  } transition-all duration-300 ${"hidden md:flex"}`}
               >
                 {item.title}
               </div>
