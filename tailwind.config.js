@@ -12,6 +12,13 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      backgroundColor: {
+        "card": "#111111",
+        "background": "#28292c"
+      },
+      textColor: {
+        'card-foreground': "white"
+      }
     },
     keyframes: {
       typing: {
