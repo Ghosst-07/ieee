@@ -58,7 +58,10 @@ function Register() {
       try {
         const resEmails = await fetch("api/Airtable"); // Replace "api/getEmails" with the path to your GET function
         const emails = await resEmails.json();
-        const emailArray = emails.map((email) => email.fields.Email);
+        let emailArray = [];
+        for (let i = 0; i < emails.length; i++) {
+          emailArray.push(emails[i].fields.Email);
+        }
         console.log(emailArray);
 
         if (emailArray.includes(email)) {
