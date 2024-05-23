@@ -56,47 +56,58 @@ function Register() {
       console.log("Valid");
 
       try {
-        const resUserExists = await fetch("api/userExists", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email }),
-        });
+        const resEmails = await fetch("api/Airtable"); // Replace "api/getEmails" with the path to your GET function
+        const emails = await resEmails.json();
 
-        const { user } = await resUserExists.json();
+        if (emails.includes(email)) {
+          console.log("Email exists in Airtable base.");
 
-        if (user) {
-          console.log("User already exists.");
-          setErrors({ email: "Email is already registered" });
-          setShowLoader(false); // Set the loader to false if validation fails
-          return;
-        }
-
-        const res = await fetch("api/register", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: username,
-            email,
-            password,
-          }),
-        });
-
-        if (res.ok) {
-          await signIn("credentials", {
-            email: email,
-            password: password,
-            redirect: true,
-            callbackUrl: "/",
+          const resUserExists = await fetch("api/userExists", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email }),
           });
-          setShowLoader(false); // Set the loader to false after successful registration
 
-          router.push("/");
+          const { user } = await resUserExists.json();
+
+          if (user) {
+            console.log("User already exists.");
+            setErrors({ email: "Email is already registered" });
+            setShowLoader(false); // Set the loader to false if validation fails
+            return;
+          }
+
+          const res = await fetch("api/register", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: username,
+              email,
+              password,
+            }),
+          });
+
+          if (res.ok) {
+            await signIn("credentials", {
+              email: email,
+              password: password,
+              redirect: true,
+              callbackUrl: "/",
+            });
+            setShowLoader(false); // Set the loader to false after successful registration
+
+            router.push("/");
+          } else {
+            console.log("User registration failed.");
+          }
         } else {
-          console.log("User registration failed.");
+          console.log("Email does not exist in Airtable base.");
+          setErrors({ email: "Email is not allowed to register" });
+          setShowLoader(false); // Set the loader to false if validation fails
         }
       } catch (error) {
         setShowLoader(false); // Set the loader to false if an error occurs during registration

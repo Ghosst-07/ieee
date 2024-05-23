@@ -25,11 +25,6 @@ const menuItems = [
     icon: <DashboardOutlined />,
     path: "/dashboard",
   },
-  {
-    title: "Bookmarks",
-    icon: <StarOutlined />,
-    path: "/books",
-  },
 ];
 
 function SideNavBar() {
