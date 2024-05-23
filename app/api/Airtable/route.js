@@ -19,12 +19,12 @@ export async function GET(req) {
       .all();
 
     const emails = records
-      .filter((record) => record.fields.Email) // Filter out records without an email
-      .map((record) => record.fields.Email); // Extract the email from each record
+      .filter((record) => record.fields.Email)
+      .map((record) => record.fields.Email);
 
-    console.log(emails);
+    console.log(records);
 
-    return NextResponse.json(emails);
+    return NextResponse.json(records);
   } catch (error) {
     console.error(error);
     return NextResponse.json({ message: error });

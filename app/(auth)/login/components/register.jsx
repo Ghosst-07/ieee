@@ -58,8 +58,10 @@ function Register() {
       try {
         const resEmails = await fetch("api/Airtable"); // Replace "api/getEmails" with the path to your GET function
         const emails = await resEmails.json();
+        const emailArray = emails.map((email) => email.fields.Email);
+        console.log(emailArray);
 
-        if (emails.includes(email)) {
+        if (emailArray.includes(email)) {
           console.log("Email exists in Airtable base.");
 
           const resUserExists = await fetch("api/userExists", {
