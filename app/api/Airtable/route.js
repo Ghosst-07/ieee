@@ -8,13 +8,12 @@ Airtable.configure({
 
 const base = Airtable.base("apppHwN9wBVfxLCuG");
 
-export async function GET(req) {
+export async function POST(req) {
   try {
-    // You can perform operations on the base here
-    // For example, let's fetch all records from a table named 'Table 1'
+    const { email } = await req.json();
     const records = await base("Email_Table")
       .select({
-        fields: ["Email"], // Replace "Email" with the name of your first column
+        fields: ["Email"],
       })
       .all();
 
@@ -22,9 +21,9 @@ export async function GET(req) {
       .filter((record) => record.fields.Email)
       .map((record) => record.fields.Email);
 
-    console.log(records);
+    const emailExists = emails.includes(email);
 
-    return NextResponse.json(records);
+    return NextResponse.json({ emailExists });
   } catch (error) {
     console.error(error);
     return NextResponse.json({ message: error });
