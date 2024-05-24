@@ -17,7 +17,7 @@ export async function POST(req) {
       })
       .all();
 
-    const emails = await records
+    const emails = records
       .filter((record) => record.fields.Email)
       .map((record) => record.fields.Email);
 
