@@ -56,19 +56,17 @@ function Register() {
       console.log("Valid");
 
       try {
-        const resEmails = await fetch("api/Airtable", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email }),
-        });
-        const emailExistAirtable = await resEmails.json();
+        const emailToCheck = email; // Use the email from the form
+        const response = await fetch(
+          `https://script.google.com/macros/s/AKfycbwCYkdUy0aQcIgHVJqKeyBHZdDIYcB_46100UI7zi-qPV0JSUUy7PIE3beyviQfuhfa7g/exec?email=${encodeURIComponent(
+            emailToCheck
+          )}`
+        );
+        const emailExistsInSheet = await response.text();
+        console.log(emailExistsInSheet);
 
-        console.log(emailExistAirtable);
-
-        if (emailExistAirtable.emailExists) {
-          console.log("Email exists in Airtable base.");
+        if (emailExistsInSheet === "true") {
+          console.log("Email exists in Google SpreadSheet.");
 
           const resUserExists = await fetch("api/userExists", {
             method: "POST",
@@ -113,7 +111,7 @@ function Register() {
             console.log("User registration failed.");
           }
         } else {
-          console.log("Email does not exist in Airtable base.");
+          console.log("Email does not exist in Google SpreadSheet.");
           setErrors({ email: "Email is not allowed to register" });
           setShowLoader(false); // Set the loader to false if validation fails
         }

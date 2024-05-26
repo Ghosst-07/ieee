@@ -8,9 +8,8 @@ Airtable.configure({
 
 const base = Airtable.base("apppHwN9wBVfxLCuG");
 
-export async function POST(req) {
+export async function GET(req) {
   try {
-    const { email } = await req.json();
     const records = await base("Email_Table")
       .select({
         fields: ["Email"],
