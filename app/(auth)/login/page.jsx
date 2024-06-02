@@ -51,9 +51,18 @@ function LoginReg() {
       >
         <div className="flex flex-col justify-center items-center w-full ">
           <div className="">
-            <h1 className="text-white animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-8xl font-bold">
-              Welcome to -----
+            <h1 className="text-white  animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 pl-24 text-8xl font-bold">
+              Welcome to CampusTutor
             </h1>
+            <p className="py-20 px-44 text-center text-white text-2xl">
+              As Promised we present you with: CampusTutor is an educational
+              website designed for college students, offering comprehensive
+              resources including interactive tutorials, course materials, and
+              study guides across various subjects. It provides practice exams
+              and personalized learning plans to support academic success. With
+              its user-friendly interface, CampusTutor aims to make learning
+              accessible and efficient for all college students.
+            </p>
           </div>
         </div>
       </div>

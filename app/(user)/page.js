@@ -6,6 +6,7 @@ import CourseCard from "./components/CourseCard";
 import CategoryHeader from "./components/CategoryHeader";
 import LearningProgress from "./components/LearningProgress";
 import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 function SearchBar({ searchTerm, handleSearch }) {
@@ -156,6 +157,17 @@ function Home() {
   const [CourseData, setCourseData] = useState([]);
   const { data: session, status } = useSession();
   const [active, setActive] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "loading") {
+      return;
+    }
+    if (status === "unauthenticated") {
+      router.push("/login");
+    }
+    console.log(session, status);
+  }, [session]);
 
   const handleSearch = (event) => {
     console.log(session);
