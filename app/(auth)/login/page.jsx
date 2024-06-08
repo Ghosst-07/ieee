@@ -45,7 +45,7 @@ function LoginReg() {
   return (
     <div className="flex flex-row">
       <div
-        className={`sm:flex w-full h-screen hidden bg-black pattern-triangles-gray-500/40 ${
+        className={`sm:flex w-full h-screen hidden bg-[#252837] pattern-triangles-gray-500/40 ${
           ischecked ? "text-white" : "text-blue-700"
         }`}
       >
@@ -66,7 +66,7 @@ function LoginReg() {
           </div>
         </div>
       </div>
-      <div className="w-full sm:w-2/5 h-screen bg-black shadow-lg shadow-white">
+      <div className="w-full sm:w-2/5 h-screen bg-[#333645] shadow-lg shadow-white">
         <div className="flex flex-col items-center justify-center  h-full p-10">
           <div className="flex flex-row justify-between w-full items-center p-1 px-4">
             <h1

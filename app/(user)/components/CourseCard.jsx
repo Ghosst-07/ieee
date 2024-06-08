@@ -96,7 +96,7 @@ function CourseCard({ imageUrl, title, description, href, tiles }) {
   };
 
   return (
-    <div className="bg-[#1e1f22] flex flex-col lg:flex-row p-5 mb-5 rounded-xl shadow-xl ">
+    <div className="bg-[#252837] flex flex-col lg:flex-row p-5 mb-5 rounded-xl shadow-xl ">
       <div className="flex flex-col lg:flex-row w-full">
         <div className="w-full lg:w-96 h-56 rounded-xl">
           <img
@@ -112,7 +112,7 @@ function CourseCard({ imageUrl, title, description, href, tiles }) {
 
           <div className={`flex-row mt-4 justify-between items-center flex`}>
             <div className="flex flex-row">
-              <div className="bg-[#28292c] rounded-md flex justify-center items-center p-3">
+              <div className="bg-[#333645] rounded-md flex justify-center items-center p-3">
                 <h1 className="text-white ">
                   {description || title.split(" ")[0]}
                 </h1>

@@ -14,7 +14,7 @@ function SearchBar({ searchTerm, handleSearch }) {
     <div className="relative flex items-center">
       <input
         type="text"
-        className="pl-8 pr-4 py-2 rounded-lg md:flex hidden bg-[#28292c] text-[#757575] focus:outline-none focus:border-blue-600"
+        className="pl-8 pr-4 py-2 rounded-lg md:flex hidden bg-[#252837] text-[#757575] focus:outline-none focus:border-blue-600"
         placeholder="Search"
         value={searchTerm}
         onChange={handleSearch}
@@ -200,7 +200,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="w-full h-screen flex flex-col bg-[#111111]">
+    <div className="w-full h-screen flex flex-col bg-[#333645]">
       <div className="w-full h-20 border border-t-0 border-[#21232b] items-center flex">
         <div className="flex flex-row w-full items-center px-5 justify-between">
           <h1 className="text-3xl text-white">Courses</h1>

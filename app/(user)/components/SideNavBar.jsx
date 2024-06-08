@@ -60,13 +60,13 @@ function SideNavBar() {
 
   return (
     <div
-      className={`h-[100%] bg-black flex flex-col justify-between md:px-10 px-0`}
+      className={`h-[100%] bg-[#252837] flex flex-col justify-between md:px-10 px-0`}
     >
       <div className="flex flex-col items-center">
         <div className="my-4 mt-5 mb-10">
           {/* logo here */}
           <h1 className="text-white md:text-3xl text-sm text-center">
-            LOGO HERE
+            Campus Tutor
           </h1>
         </div>
         {menuItems.map((item) => (

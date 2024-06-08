@@ -55,7 +55,7 @@ function Login() {
   };
 
   return (
-    <div className="w-full p-5 bg-[#111111] rounded-xl">
+    <div className="w-full p-5 bg-[#252837] rounded-xl">
       <div className="flex flex-col justify-center pt-4">
         <h1 className="text-4xl font-bold text-white">Login</h1>
         <p className="text-white">Enter your credentials below.</p>
@@ -67,7 +67,7 @@ function Login() {
             type="text"
             id="username"
             required
-            className="w-full px-10 py-2 mt-2 peer bg-[#28292c] border-gray-300 rounded-md focus:outline-none"
+            className="w-full px-10 py-2 mt-2 peer bg-[#333645] text-white border-gray-300 rounded-md focus:outline-none"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -75,7 +75,7 @@ function Login() {
             htmlFor="username"
             className={`transform transition-all absolute top-1 left-0 h-full flex items-center pl-14 text-sm group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0 ${
               username ? "top" : ""
-            }`}
+            }text-white`}
           >
             Email
           </label>
@@ -91,7 +91,7 @@ function Login() {
             type="password"
             id="password"
             required
-            className={`w-full px-10 py-2 mt-2 bg-[#28292c] peer border-gray-300 rounded-md focus:outline-none ${
+            className={`w-full px-10 py-2 mt-2 bg-[#333645] text-white peer border-gray-300 rounded-md focus:outline-none ${
               password ? "filled" : ""
             }`}
             value={password}
@@ -101,7 +101,7 @@ function Login() {
             htmlFor="password"
             className={`transform transition-all absolute top-1 left-0 h-full flex items-center pl-14 text-sm group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0 ${
               password ? "top" : ""
-            }`}
+            }text-white`}
           >
             Password
           </label>

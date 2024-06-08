@@ -21,9 +21,8 @@ function Mainscreen() {
             ></iframe>
 
             <div className="bg-white absolute right-2 top-3 w-12 h-12 flex flex-col justify-center items-center">
-              LO
+              CT
               <br />
-              GO
             </div>
           </>
         )}

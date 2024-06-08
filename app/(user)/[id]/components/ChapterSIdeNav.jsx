@@ -4,6 +4,7 @@ import getDemoData from "./demodata";
 import { ArrowLeft, CheckCircle } from "react-feather";
 import useActiveVideoStore from "@/store/ActiveVideoStore";
 import Link from "next/link";
+import { data } from "autoprefixer";
 
 function BackButton() {
   return (
@@ -29,6 +30,8 @@ function ChapterSIdeNav(Course) {
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const setVideoLink = useActiveVideoStore((state) => state.setVideoLink);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [totalmenuItems, setTotalmenuItems] = useState(0);
+  const [progressPercentage, setProgressPercentage] = useState(0);
 
   const handleClickSUBITEM = (item) => {
     setSelectedItem(item);
@@ -36,11 +39,16 @@ function ChapterSIdeNav(Course) {
   };
 
   useEffect(() => {
-    getDemoData(Course).then((data) => setMenuItems(data));
+    getDemoData(Course).then((data) => {
+      setMenuItems(data);
+      setTotalmenuItems(data.length);
+    });
   }, [Course]);
 
   const handleSubMenuClick = (index) => {
     setActiveSubMenu(index === activeSubMenu ? null : index);
+    console.log(index + 1);
+    console.log(totalmenuItems);
   };
   const name = Course?.Course?.name?.split("-")[0];
 
@@ -60,22 +68,28 @@ function ChapterSIdeNav(Course) {
             </div>
             <div
               className={`submenu ${
-                activeSubMenu === index ? "open" : ""
+                activeSubMenu === index ? "open text-blue-500" : ""
               } pl-8`}
             >
               {menuItem.subMenuItems.map((subMenuItem, subIndex) => (
                 <div
                   key={subIndex}
                   onClick={() => handleClickSUBITEM(subMenuItem)}
-                  className={`cursor-pointer py-2 px-4 text-white hover:bg- border-[#21232b] ${
-                    subMenuItem === selectedItem ? "text-blue-500" : ""
-                  }`}
+                  className="cursor-pointer py-2 px-4 text-white hover:bg- border-[#21232b] "
                 >
                   <div className="flex flex-row">
                     <div className="mr-2">
-                      <CheckCircle />
+                      <CheckCircle
+                        color={subMenuItem === selectedItem ? "blue" : "white"}
+                      />
                     </div>
-                    {subMenuItem.title.split(".")[1]}
+                    <div
+                      style={{
+                        color: subMenuItem === selectedItem ? "blue" : "white",
+                      }}
+                    >
+                      {subMenuItem.title.split(".")[1]}
+                    </div>
                   </div>
                 </div>
               ))}

@@ -51,7 +51,7 @@ function ProgressBar() {
   ];
 
   return (
-    <div className=" main-div rounded-xl m-12 w-full bg-[#1e1f22] p-5 h-fit">
+    <div className=" main-div rounded-xl m-12 w-full bg-[#252837] p-5 h-fit">
       <h1 className="text-white text-4xl">Learning Progress</h1>
       {progressData.map((progress, index) => {
         const randomColor = materialColors[index % materialColors.length];
