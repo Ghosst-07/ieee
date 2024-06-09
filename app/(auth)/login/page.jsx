@@ -1,13 +1,13 @@
 "use client";
-import { useSearchParams, useRouter, redirect } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import Login from "./components/login";
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import { getSession } from "next-auth/react";
 import Switch from "./components/switch";
 import Register from "./components/register";
+import CanvasAnimation from "./components/Canvas"; // Import the CanvasAnimation component
+import { useRouter } from "next/navigation";
 import { useQueryState } from "nuqs";
-import { get } from "mongoose";
 
 function LoginReg() {
   const router = useRouter();
@@ -49,9 +49,10 @@ function LoginReg() {
           ischecked ? "text-white" : "text-blue-700"
         }`}
       >
-        <div className="flex flex-col justify-center items-center w-full ">
-          <div className="">
-            <h1 className="text-white  animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 pl-24 text-8xl font-bold">
+        <div className="flex flex-col justify-center items-center w-full h-screen">
+          <CanvasAnimation />
+          <div className="absolute">
+            <h1 className="text-white animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 pl-24 text-8xl font-bold">
               Welcome to CampusTutor
             </h1>
             <p className="py-20 px-44 text-center text-white text-2xl">
@@ -67,7 +68,7 @@ function LoginReg() {
         </div>
       </div>
       <div className="w-full sm:w-2/5 h-screen bg-[#333645] shadow-lg shadow-white">
-        <div className="flex flex-col items-center justify-center  h-full p-10">
+        <div className="flex flex-col items-center justify-center h-full p-10">
           <div className="flex flex-row justify-between w-full items-center p-1 px-4">
             <h1
               className={`text-xl pr-2 ${
@@ -85,7 +86,7 @@ function LoginReg() {
               Register
             </h1>
           </div>
-          {registerParam === "true" ? <Register /> : <Login />}
+          {ischecked ? <Register /> : <Login />}
         </div>
       </div>
     </div>
